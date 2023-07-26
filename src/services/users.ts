@@ -18,7 +18,7 @@ export async function getMany(): Promise<UserData[]> {
       params: {
         per_page: 25,
       },
-      headers: getHeaders(),
+      headers: getHeaders()
     });
     return response.data;
   } catch (error) {
@@ -29,7 +29,7 @@ export async function getMany(): Promise<UserData[]> {
 export async function getOne(user: UserData): Promise<UserData> {
   try {
     const response = await axios.get<UserData>(`https://api.github.com/users/${user.login}`, {
-      headers: getHeaders(),
+      headers: getHeaders()
     });
     return response.data;
   } catch (error) {
