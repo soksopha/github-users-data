@@ -9,22 +9,21 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearch = () => {
-    onSearch(searchQuery);
+    const inputText = event.target.value;
+    const onlyAlphabets = inputText.replace(/[^A-Za-z]/g, "");
+    setSearchQuery(onlyAlphabets);
+    onSearch(onlyAlphabets);
   };
 
   return (
-    <div>
-      <input
-        type="text"
+    <div className="search-container">
+      <i className="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
         placeholder="Search..."
         value={searchQuery}
         onChange={handleChange}
       />
-      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };

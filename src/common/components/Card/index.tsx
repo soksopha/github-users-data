@@ -3,7 +3,7 @@ import "./style.css";
 
 interface CardProps {
   avatar: string;
-  fullName: string;
+  fullName?: string;
   companyName: string;
   numberFollower?: number;
   numberFollowing?: number;
@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
         </div>
         <div className="title-wrapper">
           <div className="card-title">
-            <h1>{fullName}</h1>
+            <h1>{fullName || "N/A"}</h1>
           </div>
           <div className="card-position">
             <p>{companyName || "N/A"}</p>

@@ -1,17 +1,18 @@
+body {        
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
 .container {
   width: 99%;
   margin: auto;
   flex-wrap: wrap;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
+  width: 1200px;
 }
 
-.card-container {
-  flex-wrap: wrap;
-	margin-top: 80px;
-	display: flex;
-	flex-wrap: wrap;
-  width: 1200px;
+.container.center {
   justify-content: center;
 }
