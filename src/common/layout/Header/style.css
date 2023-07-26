@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    box-shadow: 0 1px 8px #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ffff;
+    z-index: 2;
+    padding: 10px;
+}
+
+.header img {
+    height: 50px;
+    margin-left: 132px;
+}
+
+@media screen and (max-width: 1200px) {
+	.header {
+		display: flex;
+        justify-content: center;
+	}
+
+    .header img {
+        margin-left: 0;
+    }
+}
