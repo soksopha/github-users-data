@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "./common/components/Card";
-import Spinner from "./common/components/Spinner";
+import Loading from "./common/components/Loading";
 import Header from "./common/layout/Header";
 import SearchInput from "./common/components/SearchInput";
 import { getMany, getOne, UserData } from "./services/users";
-import "./app.css";
+import "./globalStyles/style.css";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<UserData[]>([]);
@@ -54,7 +54,7 @@ const App: React.FC = () => {
       </div>
       <div className="container center">
         {isLoading ? (
-          <Spinner />
+          <Loading />
         ) : (
           <div className="card-container">
             {users.map((user: UserData, index: number) => (

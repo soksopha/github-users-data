@@ -1,0 +1,25 @@
+:root {
+	--primary-color: #5FAD16;
+	--back-ground: #ffffff;
+	--title: #434343;
+    --brown-color: #797979
+}
+
+body {        
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+  
+.container {
+    width: 99%;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+}
+
+.container.center {
+    justify-content: center;
+}
+  
