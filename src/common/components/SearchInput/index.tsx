@@ -20,7 +20,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
       <i className="fa-solid fa-magnifying-glass"></i>
       <input 
         type="text" 
-        placeholder="Search..."
+        placeholder="Search name, company"
         value={searchQuery}
         onChange={handleChange}
       />

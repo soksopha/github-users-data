@@ -1,3 +1,3 @@
 export function validateInputNumber(value: string) : string {
-    return value.replace(/[^A-Za-z]/g, "");
+    return value.replace(/[^A-Za-z@\s]/g, "");
 }
