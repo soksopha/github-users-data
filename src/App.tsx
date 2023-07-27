@@ -4,6 +4,7 @@ import Loading from "./common/components/Loading";
 import Header from "./common/layout/Header";
 import SearchInput from "./common/components/SearchInput";
 import { getMany, getOne, UserData } from "./services/users";
+import Enum from "./common/enums";
 import "./globalStyles/style.css";
 
 const App: React.FC = () => {
@@ -14,7 +15,7 @@ const App: React.FC = () => {
     const fetchUsers = async () => {
       try {
         // Check if the data is already cached in localStorage
-        const cachedUsers = JSON.parse(localStorage.getItem("cached_users") || "[]");
+        const cachedUsers = JSON.parse(localStorage.getItem(Enum.CACHED_USERS) || "[]");
 
         if (cachedUsers.length > 0) {
           setUsers(cachedUsers);
@@ -24,13 +25,13 @@ const App: React.FC = () => {
           if (response) {
             const usersWithFullNames = await Promise.all(
               response.map(async (user: UserData) => {
-                const userResponse = await getOne(user);
+                const userResponse = await getOne(user.login);
                 return userResponse;
               })
             );
             setUsers(usersWithFullNames);
             // Cache the fetched user data in localStorage 
-            localStorage.setItem("cached_users", JSON.stringify(usersWithFullNames));
+            localStorage.setItem(Enum.CACHED_USERS, JSON.stringify(usersWithFullNames));
             setIsLoading(false);
           }
         }

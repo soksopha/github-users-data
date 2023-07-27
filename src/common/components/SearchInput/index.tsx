@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import { validateInputNumber } from '../../util';
 import "./style.css";
 
 interface SearchInputProps {
@@ -9,8 +10,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputText = event.target.value;
-    const onlyAlphabets = inputText.replace(/[^A-Za-z]/g, "");
+    const onlyAlphabets = validateInputNumber(event.target.value);
     setSearchQuery(onlyAlphabets);
     onSearch(onlyAlphabets);
   };

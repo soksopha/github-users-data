@@ -24,9 +24,9 @@ export async function getMany(): Promise<UserData[]> {
   }
 }
 
-export async function getOne(user: UserData): Promise<UserData> {
+export async function getOne(param: string): Promise<UserData> {
   try {
-    const response = await axios.get<UserData>(`https://api.github.com/users/${user.login}`);
+    const response = await axios.get<UserData>(`https://api.github.com/users/${param}`);
     return response.data;
   } catch (error) {
     throw error;
