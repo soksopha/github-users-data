@@ -1,11 +1,15 @@
 import axios from "axios";
-import UserData from "./userData";
+import UserData from "../types/user";
+
+// Constants for API
+const GITHUB_API_BASE_URL = "https://api.github.com";
+const PER_PAGE = 25;
 
 export async function getMany(): Promise<UserData[]> {
   try {
-    const response = await axios.get<UserData[]>("https://api.github.com/users", {
+    const response = await axios.get<UserData[]>(`${GITHUB_API_BASE_URL}/users`, {
       params: {
-        per_page: 25
+        per_page: PER_PAGE
       }
     });
     return response.data;
@@ -14,9 +18,9 @@ export async function getMany(): Promise<UserData[]> {
   }
 }
 
-export async function getOne(param: string): Promise<UserData> {
+export async function getOne(userName: string): Promise<UserData> {
   try {
-    const response = await axios.get<UserData>(`https://api.github.com/users/${param}`);
+    const response = await axios.get<UserData>(`${GITHUB_API_BASE_URL}/${userName}`);
     return response.data;
   } catch (error) {
     throw error;

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import Card from "./common/components/Card";
 import Loading from "./common/components/Loading";
 import Header from "./common/layout/Header";
 import SearchInput from "./common/components/SearchInput";
 import useDebounce from "./hooks/useDebounce";
-import UserData from "./services/userData";
+import UserData from "./types/user";
 import { getMany } from "./services/users";
 import "./globalStyles/index.css";
 
@@ -38,7 +40,6 @@ const App: React.FC = () => {
             setIsLoading(false);
           }
       } catch (error) {
-        console.error("Failed to fetch users:", error);
         setIsLoading(false);
       }
     };
@@ -61,25 +62,25 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Header />
-      <div className="container">
+      <Container className="container">
+        <Header />
         <SearchInput onSearch={handleFilteredUsers} />
-      </div>
-      <div className="container center">
         {isLoading ? (
           <Loading />
         ) : (
-           <div className="card-container">
-            {users.map((user: UserData, index: number) => (
-              <Card 
-                index={index} 
-                users={users} 
-                user={user} 
-              />
-            ))}
+          <div>
+            <Grid container spacing={2}>
+              {users.map((user: UserData, index: number) => (
+                <Card 
+                  index={index} 
+                  users={users} 
+                  user={user} 
+                />
+              ))}
+            </Grid>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   );
 };
