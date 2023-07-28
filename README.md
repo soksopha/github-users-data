@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# Compiling and Running the ReactJS Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This README.md file will provide you with step-by-step and detailed instructions to compile and run the code successfully. <br>
+- Please make sure you have <b>Node.js</b> and <b>npm</b> (Node Package Manager) installed on your machine before proceeding.<br>
+- If you don't have, you can download and install them from the official Node.js website (https://nodejs.org). <br>
 
-## Available Scripts
+## Step 1: Clone the Repository
 
-In the project directory, you can run:
+To get started, you need to clone our code repository to your local machine. Open the terminal (Linux) or Command Prompt (Windows) and run the following command:
 
-### `npm start`
+```bash
+git clone <your_repository_url>
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Step 2: Navigate to project directory 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Change your working directory to the project folder by running the following command: 
 
-### `npm test`
+```bash
+cd <your_repository_url>
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Replace <your_repository_url> with the name of the folder where you cloned the repository.
 
-### `npm run build`
+## Step 3: Install dependencys
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before running the code, you need install dependencies, execute the following command: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This command will read the 'package.json' file and install all the required dependencies.
 
-### `npm run eject`
+## Step 4: Build the application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To compile reactJs code into a bundle, use the following command:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run build 
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This command will create a `build` folder that content compiled files.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Step 5: Serve the application 
 
-## Learn More
+You can serve the application using a local development server . Run the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start  
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will start development server and you should see an output in the running locally.
+
+## Step 6: Access the application 
+
+You can access the application in your web browser by navigation to: 
+
+```bash
+http://localhost:3000/
+```
+
+## DONE!
+
+Follow steps above You have successfully compiled your reactJs application on your Linux or Windows machine.
+
+
+
+
+
+
+
