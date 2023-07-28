@@ -1,4 +1,4 @@
-# Compiling and Running the ReactJS Code
+# Guides step for compiling and running the ReactJS code
 
 This README.md file will provide you with step-by-step and detailed instructions to compile and run the code successfully. <br>
 - Please make sure you have <b>Node.js</b> and <b>npm</b> (Node Package Manager) installed on your machine before proceeding.<br>
