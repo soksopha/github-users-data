@@ -4,15 +4,16 @@ import Loading from "./common/components/Loading";
 import Header from "./common/layout/Header";
 import SearchInput from "./common/components/SearchInput";
 import useDebounce from "./hooks/useDebounce";
-import { getMany, UserData } from "./services/users";
-import "./globalStyles/style.css";
+import UserData from "./services/userData";
+import { getMany } from "./services/users";
+import "./globalStyles/index.css";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<UserData[]>([]);
   const [tempUser, setTemUsers] = useState<UserData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
-  const debouncedSearchValue = useDebounce(searchValue, 300);
+  const debouncedSearch = useDebounce(searchValue, 300);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -46,14 +47,13 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const filteredUsers = tempUser.filter(
-      (user) =>
-        user.name?.toLowerCase().includes(debouncedSearchValue.toLowerCase()) ||
-        user.company?.toLowerCase().includes(debouncedSearchValue.toLowerCase())
+    const filteredUsers = tempUser.filter(user =>
+        user.name?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+        user.company?.toLowerCase().includes(debouncedSearch.toLowerCase())
     );
 
     setUsers(filteredUsers);
-  }, [debouncedSearchValue, tempUser]);
+  }, [debouncedSearch, tempUser]);
 
   const handleFilteredUsers = (value: string) => {
     setSearchValue(value);

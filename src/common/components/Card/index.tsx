@@ -1,6 +1,8 @@
 import React, { memo, useEffect, useState } from "react";
-import { UserData, getOne } from "../../../services/users";
-import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getOne } from "../../../services/users";
+import UserData from "../../../services/userData";
+import "./index.css";
 
 interface CardProps {
   user: UserData;
@@ -21,6 +23,8 @@ const Card: React.FC<CardProps> = memo(({
       try {
         const result = await getOne(user.login);
         users[index].name = result.name;
+        users[index].company = result.company;
+        
         setData(result);
       } catch (error) {
         console.error("Failed to fetch user data:", error);
@@ -32,16 +36,16 @@ const Card: React.FC<CardProps> = memo(({
 
   return (
     <div className="card-item">
-        <div className="cover"></div>
-        <div className="card-img-wrapper">
-          <img src={data.avatar_url || defaultAvatar} alt="" />
-        </div>
+      <div className="cover"></div>
+      <div className="card-img-wrapper">
+        <img src={data.avatar_url || defaultAvatar} alt="" />
+      </div>
       <div className="title-wrapper">
           <div className="card-title">
             <h1>{data.name || "N/A"}</h1>
           </div>
           <div className="card-position">
-            <p>{data.company || "N/A"}</p>
+            <p><FontAwesomeIcon icon="building" size="1x" style={{fontSize: 12}} />&nbsp;{data.company || "N/A"}</p>
           </div>
       </div>
       <div className="card-footer">

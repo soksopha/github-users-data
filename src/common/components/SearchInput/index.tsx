@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { validateInputNumber } from '../../util';
-import "./style.css";
+import "./index.css";
 
 interface SearchInputProps {
   onSearch: (query: string) => void;

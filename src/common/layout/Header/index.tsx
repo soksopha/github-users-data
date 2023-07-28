@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./index.css";
 
 const Header: React.FC = () => {
   const logo = "../../../logo.png";
