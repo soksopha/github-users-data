@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import Typography from "@mui/material/Typography";
 import { Search, StyledInputBase, SearchIconWrapper } from "./SearchInput.styles";
 import { validateInputNumber } from "../../util";
 import "./index.css";
@@ -19,7 +20,10 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }: SearchInputProps)
 
   return (
     <div className="main-search-container">
-      <h1 className="title">User Lists</h1>
+      {/* <h1 className="title">User Lists</h1> */}
+      <Typography className="title" variant="h1">
+        Github users
+      </Typography>
       <div className="search-container">
         <Search style={{ marginRight: 0 }}>
           <SearchIconWrapper>

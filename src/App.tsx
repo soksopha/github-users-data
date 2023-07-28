@@ -5,6 +5,7 @@ import Card from "./common/components/Card";
 import Loading from "./common/components/Loading";
 import Header from "./common/layout/Header";
 import SearchInput from "./common/components/SearchInput";
+import NoDataFound from "./common/components/NoDataFound";
 import useDebounce from "./hooks/useDebounce";
 import UserData from "./types/user";
 import { getMany } from "./services/users";
@@ -69,15 +70,20 @@ const App: React.FC = () => {
           <Loading />
         ) : (
           <div>
-            <Grid container spacing={2}>
-              {users.map((user: UserData, index: number) => (
-                <Card 
-                  index={index} 
-                  users={users} 
-                  user={user} 
-                />
-              ))}
-            </Grid>
+            {users.length > 0 ? (
+                <Grid container spacing={2}>
+                  {users.map((user: UserData, index: number) => (
+                    <Card 
+                      index={index} 
+                      users={users} 
+                      user={user} 
+                    />
+                  ))}
+                </Grid>
+              ) : (
+                <NoDataFound />
+              )
+            }
           </div>
         )}
       </Container>
