@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Card from "./common/components/Card";
@@ -13,9 +13,10 @@ import "./globalStyles/index.css";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<UserData[]>([]);
-  const [tempUser, setTemUsers] = useState<UserData[]>([]);
+  const [tempUser, setTempUsers] = useState<UserData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
+  const [isSearch, setIsSearch] = useState(false);
   const debouncedSearch = useDebounce(searchValue, 300);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const App: React.FC = () => {
               });
             
             setUsers(datas);
-            setTemUsers(datas);
+            setTempUsers(datas);
             setIsLoading(false);
           }
       } catch (error) {
@@ -49,34 +50,40 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const filteredUsers = tempUser.filter(user =>
+    let filteredUsers = tempUser;
+    if (debouncedSearch) {
+        filteredUsers = tempUser.filter(user =>
         user.name?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         user.company?.toLowerCase().includes(debouncedSearch.toLowerCase())
-    );
-
+      );
+    }
+    
     setUsers(filteredUsers);
+    setIsSearch(false);
   }, [debouncedSearch, tempUser]);
 
   const handleFilteredUsers = (value: string) => {
     setSearchValue(value);
+    setIsSearch(true);
   };
-
+  
   return (
-    <div>
+    <Fragment>
       <Container className="container">
         <Header />
         <SearchInput onSearch={handleFilteredUsers} />
-        {isLoading ? (
+        {isLoading || isSearch ? (
           <Loading />
         ) : (
           <div>
             {users.length > 0 ? (
                 <Grid container spacing={2}>
-                  {users.map((user: UserData, index: number) => (
+                  {users && users.map((user: UserData, index: number) => (
                     <Card 
+                      key={user.id}
                       index={index} 
-                      users={users} 
-                      user={user} 
+                      users={users} //in case reference data for filter  
+                      userLogin={user?.login} 
                     />
                   ))}
                 </Grid>
@@ -87,7 +94,7 @@ const App: React.FC = () => {
           </div>
         )}
       </Container>
-    </div>
+    </Fragment>
   );
 };
 

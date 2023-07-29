@@ -1,5 +1,5 @@
 export default interface UserData {
-    id: number;
+    id?: number;
     login: string;
     company: string;
     html_url: string;

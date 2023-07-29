@@ -20,7 +20,6 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }: SearchInputProps)
 
   return (
     <div className="main-search-container">
-      {/* <h1 className="title">User Lists</h1> */}
       <Typography className="title" variant="h1">
         Github users
       </Typography>

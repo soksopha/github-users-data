@@ -21,4 +21,8 @@
 	.main-search-container {
     display: block;
   }
+
+  .main-search-container .title {
+    margin-bottom: 10px;
+  }
 }

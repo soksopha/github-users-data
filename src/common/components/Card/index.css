@@ -43,7 +43,7 @@
 
 .container .card-item .cover {
 	position: absolute;
-	height: 60px;
+	height: 70px;
     width: 100%;
     background: var(--primary-color);
     border-top-left-radius: 5px;
