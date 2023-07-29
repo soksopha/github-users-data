@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
 import { getOne } from "../../services/users";
+import { formatNumberToK } from "../../utils/helpers";
+import SkeletonCard from "../Skeleton";
 import UserData from "../../types/user";
-import "./index.css";
+import "./style.css";
 
 interface CardProps {
   userLogin: string;
@@ -15,16 +17,14 @@ interface CardProps {
 }
 
 const CardItem = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: "center",
-  borderWidth: 0,
-  color: theme.palette.text.secondary
+  borderWidth: 0
 }));
 
 const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
   const [data, setData] = useState<UserData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -44,8 +44,10 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
             following: result.following,
             followers: result.followers
           });
+          setIsLoading(false);
         }
       } catch (error) {
+        setIsLoading(false);
         console.error("Failed to fetch user data:", error);
       }
     };
@@ -55,8 +57,8 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
 
   const defaultAvatarSrc = "../../../git-hub.png";
   
-  if (!data) {
-    return null;
+  if (!data || isLoading) {
+    return <SkeletonCard />
   }
   
   return (
@@ -68,6 +70,7 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
             <div className="card-img-wrapper">
               <Avatar
                 alt={data.name}
+                sizes="60"
                 src={data.avatar_url || defaultAvatarSrc}
                 className="avartar-img"
               />
@@ -82,11 +85,11 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
             </div>
             <div className="card-footer">
                 <div className="box-wrapper">
-                    <div className="count">{data.followers}</div>
+                    <div className="count">{formatNumberToK(data.followers)}</div>
                     <div className="box-text">Followers</div>
                 </div>   
                 <div className="box-wrapper">
-                    <div className="count">{data.following}</div>
+                    <div className="count">{formatNumberToK(data.following)}</div>
                     <div className="box-text">Following</div>
                 </div>  
             </div>
@@ -97,4 +100,4 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
   );
 };
 
-export default Card;
+export default memo(Card);

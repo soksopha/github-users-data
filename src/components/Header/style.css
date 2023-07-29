@@ -1,7 +1,10 @@
 .header {
-    box-shadow: 0 1px 8px var(--box-shadow);
     background: var(--back-ground) !important;
     padding: 10px;
+}
+
+nav.header {
+    box-shadow: 0 1px 8px var(--box-shadow);
 }
 
 .header .logo img {

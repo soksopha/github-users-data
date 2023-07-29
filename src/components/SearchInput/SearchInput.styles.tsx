@@ -14,7 +14,7 @@ export const Search = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
     width: "auto",
-  },
+  }
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -25,9 +25,12 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch",
+      width: "20ch"
     },
   },
+  flex: 1,
+  display: "flex",
+  justifyContent: "center"
 }));
 
 export const SearchIconWrapper = styled("div")(({ theme }) => ({

@@ -1,16 +1,17 @@
 :root {
 	--primary-color: #5FAD16;
+    --color-container: #ccc;
 	--back-ground: #ffffff;
-	--title: #434343;
     --brown-color: #797979;
     --loading-color: #f3f3f3;
     --box-shadow: rgba(0,0,0,0.1);
+    --title: #434343;
 }
 
 body {        
     padding-top: 70px;
     padding-bottom: 40px;
-    background-color: #fcfbfb;
+    background-color: var(--back-ground)
 }
   
   

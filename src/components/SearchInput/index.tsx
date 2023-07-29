@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import { Search, StyledInputBase, SearchIconWrapper } from "./SearchInput.styles";
 import { validateInputNumber } from "../../utils/helpers";
-import "./index.css";
+import "./style.css";
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -12,16 +12,16 @@ interface SearchInputProps {
 const SearchInput: React.FC<SearchInputProps> = ({ onSearch }: SearchInputProps) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value: string = validateInputNumber(event.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value: string = validateInputNumber(e.target.value);
     setSearchQuery(value);
     onSearch(value);
   };
 
   return (
     <div className="main-search-container">
-      <Typography className="title" variant="h1">
-        Github users
+      <Typography className="title" variant="h1" fontWeight="bold">
+        User Lists
       </Typography>
       <div className="search-container">
         <Search style={{ marginRight: 0 }}>
@@ -29,7 +29,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }: SearchInputProps)
             <SearchIcon />
           </SearchIconWrapper>
           <StyledInputBase
-            placeholder="Search…"
+            placeholder="Search name, company..."
             type="text"
             inputProps={{ "aria-label": "search" }}
             value={searchQuery}

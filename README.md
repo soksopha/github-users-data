@@ -1,4 +1,4 @@
-# Guides step for compiling project Github user
+# Guides step for compiling project
 
 This README.md file will provide you with step-by-step and detailed instructions to compile and run the code successfully. <br>
 - Please make sure you have <b>Node.js</b> and <b>npm</b> (Node Package Manager) installed on your machine before proceeding.<br>

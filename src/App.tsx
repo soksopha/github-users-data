@@ -9,7 +9,7 @@ import NoDataFound from "./components/NoDataFound";
 import useDebounce from "./hooks/useDebounce";
 import UserData from "./types/user";
 import { getMany } from "./services/users";
-import "./globalStyles/index.css";
+import "./globalStyles/style.css";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<UserData[]>([]);
