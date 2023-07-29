@@ -4,8 +4,8 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
-import { getOne } from "../../../services/users";
-import UserData from "../../../types/user";
+import { getOne } from "../../services/users";
+import UserData from "../../types/user";
 import "./index.css";
 
 interface CardProps {
@@ -14,7 +14,7 @@ interface CardProps {
   index: number;
 }
 
-const Item = styled(Paper)(({ theme }) => ({
+const CardItem = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -23,11 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 
-const Card: React.FC<CardProps> = ({
-  userLogin,
-  users,
-  index
-}) => {
+const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
   const [data, setData] = useState<UserData | null>(null);
 
   useEffect(() => {
@@ -38,7 +34,6 @@ const Card: React.FC<CardProps> = ({
           users[index].name = result.name;
           users[index].company = result.company;
           
-          //set specific key
           setData({
             id: result.id,
             login: result.login,
@@ -58,7 +53,7 @@ const Card: React.FC<CardProps> = ({
     fetchUserData();
   }, [userLogin, users, index]);
 
-  const defaultAvatar = "../../../git-hub.png";
+  const defaultAvatarSrc = "../../../git-hub.png";
   
   if (!data) {
     return null;
@@ -66,14 +61,14 @@ const Card: React.FC<CardProps> = ({
   
   return (
     <Grid item lg={3} xl={3} md={3} sm={6} xs={12} key={index}>
-      <Link href={`${data.html_url}`} target="_blank" underline="none">
-        <Item>
+      <Link href={data.html_url} target="_blank" underline="none">
+        <CardItem>
           <div className="card-item">
             <div className="cover"></div>
             <div className="card-img-wrapper">
               <Avatar
                 alt={data.name}
-                src={data.avatar_url || defaultAvatar}
+                src={data.avatar_url || defaultAvatarSrc}
                 className="avartar-img"
               />
             </div>
@@ -96,7 +91,7 @@ const Card: React.FC<CardProps> = ({
                 </div>  
             </div>
           </div>
-        </Item>
+        </CardItem>
       </Link>
     </Grid>
   );

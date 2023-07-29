@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import { Search, StyledInputBase, SearchIconWrapper } from "./SearchInput.styles";
-import { validateInputNumber } from "../../util";
+import { validateInputNumber } from "../../utils/helpers";
 import "./index.css";
 
 interface SearchInputProps {

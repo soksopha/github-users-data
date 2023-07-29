@@ -1,11 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Card from "./common/components/Card";
-import Loading from "./common/components/Loading";
-import Header from "./common/layout/Header";
-import SearchInput from "./common/components/SearchInput";
-import NoDataFound from "./common/components/NoDataFound";
+import Card from "./components/Card";
+import Loading from "./components/Loading";
+import Header from "./components/Header";
+import SearchInput from "./components/SearchInput";
+import NoDataFound from "./components/NoDataFound";
 import useDebounce from "./hooks/useDebounce";
 import UserData from "./types/user";
 import { getMany } from "./services/users";
