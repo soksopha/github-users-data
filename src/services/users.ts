@@ -2,7 +2,7 @@ import axios from "axios";
 import { getURl } from "./core";
 import UserData from "../types/user";
 
-const PER_PAGE = 4;
+const PER_PAGE = 25;
 
 export async function getMany(): Promise<UserData[]> {
   try {
