@@ -1,16 +1,21 @@
 :root {
 	--primary-color: #5FAD16;
     --color-container: #ccc;
-	--back-ground: #ffffff;
+    --back-ground: #F2F5F8;
     --brown-color: #797979;
     --loading-color: #f3f3f3;
     --box-shadow: rgba(0,0,0,0.1);
     --title: #434343;
-    --not-found-background: #f0f0f0
+    --not-found-background: #f0f0f0;
+    --white-color: #FFFFFF;
 }
 
 body {        
     padding-top: 70px;
     padding-bottom: 40px;
     background-color: var(--back-ground)
+}
+
+.container {
+    padding-bottom: 20px;
 }

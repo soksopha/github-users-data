@@ -1,0 +1,20 @@
+.footer-container {
+    top: "auto";
+    bottom: 0;
+    padding: 10px;
+    background-color: var(--back-ground) !important;
+}
+
+.footer-container .footer-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container .footer-logo img {
+    width: 70px;
+    filter: opacity(0.4);
+}
+
+.footer-hidden {
+    display: none !important;
+}

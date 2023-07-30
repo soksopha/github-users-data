@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Card from "./components/Card";
 import Loading from "./components/Loading";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import SearchInput from "./components/SearchInput";
 import NoDataFound from "./components/NoDataFound";
 import useDebounce from "./hooks/useDebounce";
@@ -79,12 +80,7 @@ const App: React.FC = () => {
             {users.length > 0 ? (
                 <Grid container spacing={2}>
                   {users.map((user: UserData, index: number) => (
-                    <Card 
-                      key={user.id}
-                      index={index} 
-                      users={users} //in case reference data for filter  
-                      userLogin={user?.login} 
-                    />
+                    <Card key={user.id} index={index} users={users} userLogin={user?.login} />
                   ))}
                 </Grid>
               ) : (
@@ -93,6 +89,7 @@ const App: React.FC = () => {
             }
           </Fragment>
         )}
+        <Footer />
       </Container>
     </Fragment>
   );
