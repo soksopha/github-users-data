@@ -78,7 +78,7 @@ const App: React.FC = () => {
           <Fragment>
             {users.length > 0 ? (
                 <Grid container spacing={2}>
-                  {users && users.map((user: UserData, index: number) => (
+                  {users.map((user: UserData, index: number) => (
                     <Card 
                       key={user.id}
                       index={index} 
