@@ -32,9 +32,39 @@ cd <your_repository_url>
 
 Replace <your_repository_url> with the name of the folder where you cloned the repository.
 
-## Step 3: Setting Up Your Own .env File
+## Step 3: Creating a .env File
 
-If you don't have an .env file, locate the .env.example file in the root of your project directory and rename to .env file.
+The .env file is used to store environment variables for your application. These variables can include sensitive information such as API keys It allows you to manage different configurations easily without modifying your code.
+
+Follow these steps to create a .env file:
+
+1. Navigate to project directory 
+Open your terminal or command prompt and navigate to the root directory of your project where you want to create the .env file.
+2. Create the .env File
+you can use the following command:
+
+On Linux or macOS:
+
+```bash
+touch .env
+```
+
+On Windows (using Command Prompt):
+
+```bash
+echo > .env
+```
+
+3. Add Environment Variables
+
+Open the .env file with your text editor. Each line in the file should define a separate environment variable in the following format:
+
+```bash
+REACT_APP_API_HOST=https://api.github.com
+```
+
+Copy and Save the changes to the .env file after adding all the necessary environment 
+variables.
 
 ## Step 4: Install dependency
 
