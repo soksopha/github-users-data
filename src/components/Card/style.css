@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.container .card-img-wrapper .avartar-img {
+.container .card-img-wrapper .avatar-img {
 	width: 100px;
 	height: 100px;
     border: 2px solid var(--back-ground);

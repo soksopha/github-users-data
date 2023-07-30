@@ -1,12 +1,12 @@
 import axios from "axios";
+import { getURl } from "./core";
 import UserData from "../types/user";
 
-const GITHUB_API_BASE_URL = "https://api.github.com";
-const PER_PAGE = 25;
+const PER_PAGE = 4;
 
 export async function getMany(): Promise<UserData[]> {
   try {
-    const response = await axios.get<UserData[]>(`${GITHUB_API_BASE_URL}/users`, {
+    const response = await axios.get<UserData[]>(`${getURl()}/users`, {
       params: {
         per_page: PER_PAGE
       }
@@ -19,7 +19,7 @@ export async function getMany(): Promise<UserData[]> {
 
 export async function getOne(userName: string): Promise<UserData> {
   try {
-    const response = await axios.get<UserData>(`${GITHUB_API_BASE_URL}/users/${userName}`);
+    const response = await axios.get<UserData>(`${getURl()}/users/${userName}`);
     return response.data;
   } catch (error) {
     throw error;

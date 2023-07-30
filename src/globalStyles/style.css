@@ -6,6 +6,7 @@
     --loading-color: #f3f3f3;
     --box-shadow: rgba(0,0,0,0.1);
     --title: #434343;
+    --not-found-background: #f0f0f0
 }
 
 body {        
@@ -13,5 +14,3 @@ body {
     padding-bottom: 40px;
     background-color: var(--back-ground)
 }
-  
-  

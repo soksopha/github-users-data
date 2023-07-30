@@ -1,0 +1,13 @@
+.not-found-container {
+    background-color: var(--not-found-background) !important;
+    padding: 60px !important;
+}
+
+.not-found-container .icon-styles {
+    font-size: "large";
+    color: var(--primary-color);
+}
+
+.not-found-container .title-styles {
+    color: var(--primary-color);
+}; 

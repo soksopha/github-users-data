@@ -24,7 +24,7 @@ const App: React.FC = () => {
       try {
           const response = await getMany();
           if (response) {
-            const datas = response.map((user: UserData) => {
+            const result = response.map((user: UserData) => {
                 return {
                   id: user.id,
                   login: user.login,
@@ -37,8 +37,8 @@ const App: React.FC = () => {
                 };
               });
             
-            setUsers(datas);
-            setTempUsers(datas);
+            setUsers(result);
+            setTempUsers(result);
             setIsLoading(false);
           }
       } catch (error) {
@@ -75,7 +75,7 @@ const App: React.FC = () => {
         {isLoading || isSearch ? (
           <Loading />
         ) : (
-          <div>
+          <Fragment>
             {users.length > 0 ? (
                 <Grid container spacing={2}>
                   {users && users.map((user: UserData, index: number) => (
@@ -91,7 +91,7 @@ const App: React.FC = () => {
                 <NoDataFound />
               )
             }
-          </div>
+          </Fragment>
         )}
       </Container>
     </Fragment>

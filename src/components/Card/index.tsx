@@ -72,7 +72,7 @@ const Card: React.FC<CardProps> = ({ userLogin, users, index }) => {
                 alt={data.name}
                 sizes="60"
                 src={data.avatar_url || defaultAvatarSrc}
-                className="avartar-img"
+                className="avatar-img"
               />
             </div>
             <div className="title-wrapper">
