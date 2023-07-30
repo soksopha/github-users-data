@@ -32,7 +32,7 @@ cd <your_repository_url>
 
 Replace <your_repository_url> with the name of the folder where you cloned the repository.
 
-## Step 3: Rename configuration dependencies 
+## Step 3: Setting Up Your Own .env File
 
 If you don't have an .env file, locate the .env.example file in the root of your project directory and rename to .env file.
 
